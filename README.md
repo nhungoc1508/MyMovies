@@ -88,8 +88,59 @@ MyMovies is a movie search and collection app. This app allows users to not only
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### User
+
+| Property | Type | Description |
+| - | - | - |
+| userId | String | Unique ID for the user |
+| username | String | Unique username set by the user |
+| password | String | Password set by the user |
+| collections | [CollectionObj] | Array of collections created by the user |
+
+#### Collection
+
+| Property | Type | Description |
+| - | - | - |
+| name | String | Name of the collection |
+| author | Pointer | Pointer to the user that owns the collection |
+| movies | [MovieIds] | Array of movies in the collection |
+
+#### Movie
+
+| Property | Type | Description |
+| - | - | - |
+| movieId| String | ID of the movie |
+
+- Not being stored in database
+- Currently being fetched from TMDB
 ### Networking
+Movie API: https://developers.themoviedb.org/3/getting-started/introduction
 - [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+* MovieFeed Screen:
+    * GET request to fetch top movies
+    * GET request to fetch movies based on user's queries
+* MovieDetail Screen:
+    * GET request to fetch data of a specific movie
+* AddToCollection Screen:
+    * GET request to get user's available collections to choose
+    * PUT rquest to add a movie to a user's collection
+* Collection Screen:
+    * GET request to get user's collections
+    ```swift
+    let query = PFQuery(className:"Collections")
+    query.includeKeys(["name", "movies"])
+    query.limit = 20
+    query.order(byDescending: "createdAt")
+    query.findObjectsInBackground { (collections, error) in
+        if collections != nil {
+            self.collections = collections!
+            self.tableView.reloadData()
+        }
+    }
+    ```
+* Profile Screen:
+    * GET request to get current user's information
+* Settings
+    * GET request to get current user's settings configurations
+    * PUT request to update user's settings
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
