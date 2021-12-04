@@ -156,4 +156,5 @@ Movie API: https://developers.themoviedb.org/3/getting-started/introduction
 #### Walkthrough GIF
 Here's a walkthrough of implemented user stories:
 
+(GIF is not showing and is being fixed. In the meantime, direct link to GIF: https://media.giphy.com/media/Z5XJEbdbf5XWX4KDNu/giphy.gif)
 <img src='https://media.giphy.com/media/Z5XJEbdbf5XWX4KDNu/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
