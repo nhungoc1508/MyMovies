@@ -2,9 +2,10 @@
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
+5. [Sprint progress](#Sprint-Progress)
 
 ## Overview
 ### Description
@@ -27,8 +28,13 @@ MyMovies is a movie search and collection app. This app allows users to not only
 * User can register new account and sign in
 * User stays logged in across app restarts
 * User can browse movies and search by name
+  - [x] User can browse movies in feed
+  - [ ] User can search using search bar
 * User can create new collections and add movies in
+  - [ ] User can create a new collection
+  - [x] User can add movies in existing collection
 * User can see collections they have created and modify them (remove movies, add new movies, delete collections)
+  - [x] User can see collections they have created
 
 **Optional Nice-to-have Stories**
 
@@ -143,4 +149,11 @@ Movie API: https://developers.themoviedb.org/3/getting-started/introduction
 * Settings
     * GET request to get current user's settings configurations
     * PUT request to update user's settings
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Sprint progress
+
+### Sprint 1 & 2
+#### Walkthrough GIF
+Here's a walkthrough of implemented user stories:
+
+<img src='https://media.giphy.com/media/Z5XJEbdbf5XWX4KDNu/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
