@@ -52,7 +52,7 @@ MyMovies is a movie search and collection app. This app allows users to not only
    * User can browse top movies
    * User can search for movies by names using the search bar
    * User can view their collections
-   <img src='https://i.imgur.com/rSn38XC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+   <img src='https://i.imgur.com/2QgJSoX.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 * Detail
     * User can see movie details in browser
     * User can see details of specific collection 
