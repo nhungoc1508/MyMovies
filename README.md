@@ -53,9 +53,11 @@ MyMovies is a movie search and collection app. This app allows users to not only
     * User can create a new movie collection
 * Profile
     * User can see their own information and names of collections they've created
+    <img src='https://i.imgur.com/5x438WP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 * Settings
     * User can change their information
     * User can change privacy settings (whether to keep their collections private or public, etc.)
+    SEE ABOV GIF
 
 ### 3. Navigation
 
