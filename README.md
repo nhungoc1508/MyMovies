@@ -31,7 +31,7 @@ MyMovies is a movie search and collection app. This app allows users to not only
   - [x] User can browse movies in feed
   - [ ] User can search using search bar
 * User can create new collections and add movies in
-  - [ ] User can create a new collection
+  - [x] User can create a new collection
   - [x] User can add movies in existing collection
 * User can see collections they have created and modify them (remove movies, add new movies, delete collections)
   - [x] User can see collections they have created
@@ -53,11 +53,20 @@ MyMovies is a movie search and collection app. This app allows users to not only
    * User can search for movies by names using the search bar
    * User can view their collections
    <img src='https://i.imgur.com/2QgJSoX.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+   <img src='https://media.giphy.com/media/HFg6K4gNftZ8AJ3h7k/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 * Detail
     * User can see movie details in browser
-    * User can see details of specific collection 
+    * User can see details of specific collection
+    * User can add a movie to a collection
+    * User can delete a movie from a collection
+    <img src='https://media.giphy.com/media/tcILwF0p9H5anxqURZ/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 * Creation
-    * User can create a new movie collection
+    * User can create a new movie collection in collection view
+    * User can create a new movie collection upon adding movie
+    * User can rename an existing collection
+    * User can delete an existing collection
+    <img src='https://media.giphy.com/media/FLtp2QFsAUX5tzvI01/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+    <img src='https://media.giphy.com/media/IWQ9zpORR1yPsf6AHR/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 * Profile
     * User can see their own information and names of collections they've created
     <img src='https://i.imgur.com/BIdAY20.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
