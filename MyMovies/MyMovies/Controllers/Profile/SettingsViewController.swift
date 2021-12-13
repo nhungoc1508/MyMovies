@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Parse
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var privateCollectionsSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,12 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        
+        PFUser.logOut()
+            
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else { return }
+        delegate.window?.rootViewController = loginViewController
     }
     
 
