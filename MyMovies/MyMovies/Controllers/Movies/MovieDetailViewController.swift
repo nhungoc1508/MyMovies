@@ -42,6 +42,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var language: UILabel!
     @IBOutlet weak var movieYear: UILabel!
     
+    var genre_ids = Array<Int>()
     @IBOutlet weak var genre0: UIButton!
     @IBOutlet weak var genre1: UIButton!
     @IBOutlet weak var genre2: UIButton!
@@ -78,9 +79,9 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         
         movieSynopsis.text = (movie["overview"] as! String)
         
+        self.genre_ids = movie["genre_ids"] as! Array<Int>
         let genre_buttons = [self.genre0, self.genre1, self.genre2]
-        let genre_ids = movie["genre_ids"] as! Array<Int>
-        let num_genres = min(3, genre_ids.count)
+        let num_genres = min(3, self.genre_ids.count)
         for id in 0...(num_genres - 1) {
             genre_buttons[id]?.setTitle(self.genres[genre_ids[id]], for: .normal)
             genre_buttons[id]?.layer.cornerRadius = 5
@@ -91,7 +92,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
         
-        if (self.movie["vote_average"] != nil) {
+        if (self.movie["vote_average"] as! Double) > 0.0 {
             let rating = self.movie["vote_average"] as! Double
             self.score.text = String(rating) + "/10"
         } else {
@@ -171,6 +172,15 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate, UIC
             detailViewController.movie = recMovie
             
             recsCollectionView.deselectItem(at: indexPath, animated: true)
+        } else if segue.identifier == "ShowGenre0" {
+            let feedByGenre = segue.destination as! FeedByGenreViewController
+            feedByGenre.genreId = self.genre_ids[0]
+        } else if segue.identifier == "ShowGenre1" {
+            let feedByGenre = segue.destination as! FeedByGenreViewController
+            feedByGenre.genreId = self.genre_ids[1]
+        } else if segue.identifier == "ShowGenre2" {
+            let feedByGenre = segue.destination as! FeedByGenreViewController
+            feedByGenre.genreId = self.genre_ids[2]
         }
     }
 

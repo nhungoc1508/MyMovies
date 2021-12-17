@@ -160,7 +160,6 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
         posterViews.append(cell.posterView2)
         posterViews.append(cell.posterView3)
         posterViews.append(cell.posterView4)
-        
 
         for poster in posterViews {
             poster.image = nil
@@ -173,9 +172,6 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
                 var cur_poster = posterViews[i]
                 cur_poster.af.setImage(withURL: URL(string: baseUrl + thumbnails[i])!)
             }
-//            for i in thumbnails.count...4 {
-//                posterViews[i].image = nil
-//            }
         }
         
         return cell

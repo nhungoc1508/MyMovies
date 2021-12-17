@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="panorama" translatesAutoresizingMaskIntoConstraints="NO" id="XgO-pr-hfg">
-                                <rect key="frame" x="121" y="304" width="173" height="174"/>
+                                <rect key="frame" x="121" y="336" width="173" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MyMovies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xt9-ac-ncp">
-                                <rect key="frame" x="64" y="455" width="287" height="68"/>
+                                <rect key="frame" x="64" y="487" width="287" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="60"/>
                                 <color key="textColor" red="0.64313727620000005" green="0.50196081400000003" blue="0.8392156959" alpha="0.61537665562913912" colorSpace="custom" customColorSpace="displayP3"/>

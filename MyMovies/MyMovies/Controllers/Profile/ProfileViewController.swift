@@ -48,7 +48,9 @@ class ProfileViewController: UIViewController {
         }
         // get users collections
         let query = PFQuery(className:"Collection")
-        query.whereKey("owner", equalTo: PFUser.current()!)
+        if (PFUser.current() != nil) {
+            query.whereKey("owner", equalTo: PFUser.current()!)
+        }
         query.includeKeys(["objectId", "owner", "name"])
         query.limit = 20
 
