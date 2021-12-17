@@ -11,10 +11,14 @@ import Parse
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var privateCollectionsSwitch: UISwitch!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.logoutButton.layer.cornerRadius = 12
+        self.logoutButton.applyGradient(colors: [UIColor(named: "orange-coral")!.cgColor, UIColor(named: "pink-coral")!.cgColor])
+        
         // Do any additional setup after loading the view.
     }
     

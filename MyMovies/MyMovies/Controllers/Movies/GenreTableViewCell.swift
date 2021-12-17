@@ -9,6 +9,8 @@ import UIKit
 
 class GenreTableViewCell: UITableViewCell {
     @IBOutlet weak var genreName: UILabel!
+    @IBOutlet weak var backdrop: UIImageView!
+    @IBOutlet weak var backdropOverlay: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
