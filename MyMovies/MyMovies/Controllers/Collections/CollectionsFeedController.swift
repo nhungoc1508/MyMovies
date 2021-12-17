@@ -15,6 +15,7 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var newButton: UIButton!
     var collections = [PFObject]()
     let currentUser = PFUser.current()
     
@@ -38,7 +39,7 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
                  = collections
                 self.tableView.reloadData()
             } else {
-                print(error?.localizedDescription)
+                print("Error: \(error?.localizedDescription)")
             }
         }
     }
@@ -53,6 +54,11 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
         
         tableView.rowHeight = 353
+        
+        let pinkish = UIColor(named: "pinkish")!.cgColor
+        let purpleish = UIColor(named: "purpleish")!.cgColor
+        self.newButton.layer.cornerRadius = 12
+        self.newButton.applyGradient(colors: [pinkish, purpleish])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,7 +94,7 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
                 self.tableView.reloadData()
                 print("Collection saved")
             } else {
-                print("Error saving collection: \(error)")
+                print("Error saving collection: \(error?.localizedDescription)")
             }
         }
         print(collections.count)

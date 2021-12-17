@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionNumber: UILabel!
     @IBOutlet weak var movieNumber: UILabel!
     
+    @IBOutlet weak var collectionCard: UIImageView!
+    @IBOutlet weak var movieCard: UIImageView!
     //
     // variables
     let currentUser = PFUser.current()
@@ -26,6 +28,15 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadInfo()
+        
+        self.collectionCard.layer.cornerRadius = 12
+        self.collectionCard.applyGradient(colors: [UIColor(named: "blueish")!.cgColor, UIColor(named: "purpleish2")!.cgColor])
+        self.movieCard.layer.cornerRadius = 12
+        self.movieCard.applyGradient(colors: [UIColor(named: "purpleish2")!.cgColor, UIColor(named: "pinkish")!.cgColor])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         loadInfo()
     }
     
@@ -46,7 +57,11 @@ class ProfileViewController: UIViewController {
             if let collections = collections {
                 // calculating user collections
                 self.collections = collections
-                self.collectionNumber.text = String(collections.count)
+                if collections.count > 1 {
+                    self.collectionNumber.text = String(collections.count) + " collections"
+                } else {
+                    self.collectionNumber.text = String(collections.count) + " collection"
+                }
                 // calculating total movies
                 var movies = 0
                 for ind in 0...(collections.count - 1) {
@@ -54,8 +69,11 @@ class ProfileViewController: UIViewController {
                     let ids = collection["movie_ids"] as! Array<Int>
                     movies += ids.count
                 }
-                self.movieNumber.text = String(movies)
-                
+                if movies > 1 {
+                    self.movieNumber.text = String(movies) + " movies"
+                } else {
+                    self.movieNumber.text = String(movies) + " movie"
+                }
             } else {
                 print(error?.localizedDescription)
             }
@@ -73,4 +91,18 @@ class ProfileViewController: UIViewController {
     }
     */
 
+}
+
+extension UIImageView
+{
+    func applyGradient(colors: [CGColor])
+    {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = self.bounds
+        gradientLayer.cornerRadius = 12
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

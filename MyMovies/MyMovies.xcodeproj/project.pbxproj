@@ -38,6 +38,7 @@
 		F618C47127654A3D0049B06E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C47027654A3D0049B06E /* SignUpViewController.swift */; };
 		F660BF8E275D3E03005C0EC8 /* EditMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660BF8D275D3E03005C0EC8 /* EditMovieViewController.swift */; };
 		F660BF90275D418A005C0EC8 /* ExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660BF8F275D418A005C0EC8 /* ExperimentViewController.swift */; };
+		F6D188DC276C58D500554D86 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D188DB276C58D500554D86 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		F618C47027654A3D0049B06E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F660BF8D275D3E03005C0EC8 /* EditMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMovieViewController.swift; sourceTree = "<group>"; };
 		F660BF8F275D418A005C0EC8 /* ExperimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentViewController.swift; sourceTree = "<group>"; };
+		F6D188DB276C58D500554D86 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				F6110F33275A88A7002E4A75 /* LaunchScreen.storyboard */,
 				F6110F2E275A88A1002E4A75 /* Main.storyboard */,
+				F6D188DB276C58D500554D86 /* LaunchScreenViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				F660BF8E275D3E03005C0EC8 /* EditMovieViewController.swift in Sources */,
 				F6110F29275A88A1002E4A75 /* AppDelegate.swift in Sources */,
 				F6110F6F275B149A002E4A75 /* CollectionChoiceCell.swift in Sources */,
+				F6D188DC276C58D500554D86 /* LaunchScreenViewController.swift in Sources */,
 				F6110F5D275A9FEC002E4A75 /* MovieGridCell.swift in Sources */,
 				F6110F61275ABF40002E4A75 /* CollectionCell.swift in Sources */,
 				F6110F6D275B12A1002E4A75 /* CollectionChoiceViewController.swift in Sources */,

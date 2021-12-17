@@ -18,7 +18,10 @@ class LoginViewController: UIViewController {
         self.usernameField.borderStyle = .roundedRect
         self.passwordField.borderStyle = .roundedRect
         
-        self.logInButton.layer.cornerRadius = 5
+        self.logInButton.layer.cornerRadius = 12
+        let pinkish = UIColor(named: "pinkish")!.cgColor
+        let purpleish = UIColor(named: "purpleish")!.cgColor
+        self.logInButton.applyGradient(colors: [pinkish, purpleish])
 
         // Do any additional setup after loading the view.
     }
@@ -71,4 +74,18 @@ class LoginViewController: UIViewController {
         return first + other
     }
 
+}
+
+extension UIButton
+{
+    func applyGradient(colors: [CGColor])
+    {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = self.bounds
+        gradientLayer.cornerRadius = 12
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

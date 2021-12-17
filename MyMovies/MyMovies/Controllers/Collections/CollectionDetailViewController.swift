@@ -17,10 +17,10 @@ class CollectionDetailViewController: UIViewController, UICollectionViewDataSour
     let currentUser = PFUser.current()
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var collectionName: UILabel!
-    
     @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var renameButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     func reloadCollection() {
         let collectionId = self.collection?.objectId as! String
@@ -54,6 +54,11 @@ class CollectionDetailViewController: UIViewController, UICollectionViewDataSour
         collectionView.dataSource = self
         self.reloadCollection()
         collectionView.reloadData()
+        
+        self.renameButton.layer.cornerRadius = 12
+        self.deleteButton.layer.cornerRadius = 12
+        self.renameButton.applyGradient(colors: [UIColor(named: "blueish")!.cgColor, UIColor(named: "purpleish2")!.cgColor])
+        self.deleteButton.applyGradient(colors: [UIColor(named: "orange-coral")!.cgColor, UIColor(named: "pink-coral")!.cgColor])
 
         // Do any additional setup after loading the view.
         collectionName.text = collection?["name"] as! String

@@ -20,7 +20,10 @@ class SignUpViewController: UIViewController {
         self.usernameField.borderStyle = .roundedRect
         self.passwordField.borderStyle = .roundedRect
         
-        self.signupButton.layer.cornerRadius = 5
+        self.signupButton.layer.cornerRadius = 12
+        let pinkish = UIColor(named: "pinkish")!.cgColor
+        let purpleish = UIColor(named: "purpleish")!.cgColor
+        self.signupButton.applyGradient(colors: [pinkish, purpleish])
 
         // Do any additional setup after loading the view.
     }

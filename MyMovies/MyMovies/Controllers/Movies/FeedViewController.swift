@@ -10,15 +10,28 @@ import AlamofireImage
 
 class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var comedyButton: UIButton!
+    @IBOutlet weak var fantasyButton: UIButton!
+    @IBOutlet weak var scifiButton: UIButton!
     
     var movies = [[String:Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pinkish = UIColor(named: "pinkish")!.cgColor
+        let purpleish = UIColor(named: "purpleish")!.cgColor
+        self.actionButton.layer.cornerRadius = 12
+        self.actionButton.applyGradient(colors: [pinkish, purpleish])
+        self.comedyButton.layer.cornerRadius = 12
+        self.comedyButton.applyGradient(colors: [pinkish, purpleish])
+        self.fantasyButton.layer.cornerRadius = 12
+        self.fantasyButton.applyGradient(colors: [pinkish, purpleish])
+        self.scifiButton.layer.cornerRadius = 12
+        self.scifiButton.applyGradient(colors: [pinkish, purpleish])
         
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height
