@@ -19,6 +19,9 @@ MyMovies is a movie search and collection app. This app allows users to not only
 - **Habit:** Users will use this a lot as people are always watching movies and a user creates collections.
 - **Scope:** This scope allows for something that is probable to build within the timeframe, but also has optional stories if finished too quickly. We will add additional recommendation system if time permits.
 
+### Demo video
+A demo video for the app is [available here](https://www.youtube.com/watch?v=A9EqRzfjHGk).
+
 ## Product Spec
 
 ### 1. User Stories (Required and Optional)
@@ -29,7 +32,7 @@ MyMovies is a movie search and collection app. This app allows users to not only
 * User stays logged in across app restarts
 * User can browse movies and search by name
   - [x] User can browse movies in feed
-  - [ ] User can search using search bar
+  - [x] User can search using search bar
 * User can create new collections and add movies in
   - [x] User can create a new collection
   - [x] User can add movies in existing collection
@@ -38,11 +41,11 @@ MyMovies is a movie search and collection app. This app allows users to not only
 
 **Optional Nice-to-have Stories**
 
-* User can search by genre, actor name
-* User can share their collections
-* User can view others collections
-* User can get recommended collections by other users
-* User can get recommended movies by the system
+[ ] User can search by genre, actor name
+[ ] User can share their collections
+[x] User can view others collections
+[ ] User can get recommended collections by other users
+[x] User can get recommended movies by the system
 
 ### 2. Screen Archetypes
 
