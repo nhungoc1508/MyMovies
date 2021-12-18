@@ -66,15 +66,19 @@ class ProfileViewController: UIViewController {
                 }
                 // calculating total movies
                 var movies = 0
-                for ind in 0...(collections.count - 1) {
-                    let collection = collections[ind]
-                    let ids = collection["movie_ids"] as! Array<Int>
-                    movies += ids.count
-                }
-                if movies > 1 {
-                    self.movieNumber.text = String(movies) + " movies"
+                if collections.count > 0 {
+                    for ind in 0...(collections.count - 1) {
+                        let collection = collections[ind]
+                        let ids = collection["movie_ids"] as! Array<Int>
+                        movies += ids.count
+                    }
+                    if movies > 1 {
+                        self.movieNumber.text = String(movies) + " movies"
+                    } else {
+                        self.movieNumber.text = String(movies) + " movie"
+                    }
                 } else {
-                    self.movieNumber.text = String(movies) + " movie"
+                    self.movieNumber.text = "0 movie"
                 }
             } else {
                 print(error?.localizedDescription)
