@@ -51,25 +51,35 @@ A demo video for the app is [available here](https://www.youtube.com/watch?v=A9E
 
 * Login / Register
    * User can sign up or log into their account
+   <img src="https://media.giphy.com/media/XIGmu9PFepZE7fNdny/giphy.gif" width=250/>
 * Stream
    * User can browse top movies
    * User can search for movies by names using the search bar
    * User can view their collections
-   <img src='https://i.imgur.com/2QgJSoX.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-   <img src='https://media.giphy.com/media/HFg6K4gNftZ8AJ3h7k/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+   <img src="https://media.giphy.com/media/Ecvi482WWDIUWEu0lx/giphy.gif" width=250/>
+   <img src="https://media.giphy.com/media/fNuwNe8pfhenv7zoxL/giphy.gif" width=250/>
+   <img src="https://media.giphy.com/media/BmL5pCbuwPKN2HyNU3/giphy.gif" width=250/>
+   <!--- <img src='https://i.imgur.com/2QgJSoX.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+   <img src='https://media.giphy.com/media/HFg6K4gNftZ8AJ3h7k/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
 * Detail
-    * User can see movie details in browser
-    * User can see details of specific collection
+    * User can see movie details in browser (see above)
+    * User can see details of specific collection (see above)
     * User can add a movie to a collection
     * User can delete a movie from a collection
-    <img src='https://media.giphy.com/media/tcILwF0p9H5anxqURZ/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+    <img src="https://media.giphy.com/media/qnAlQp3AvgtQ4YF27c/giphy.gif" width=250/>
+    <img src="https://media.giphy.com/media/AADiPn0ZxiFGOEar19/giphy.gif" width=250/>
+    <!-- <img src='https://media.giphy.com/media/tcILwF0p9H5anxqURZ/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
 * Creation
     * User can create a new movie collection in collection view
     * User can create a new movie collection upon adding movie
     * User can rename an existing collection
     * User can delete an existing collection
-    <img src='https://media.giphy.com/media/FLtp2QFsAUX5tzvI01/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-    <img src='https://media.giphy.com/media/IWQ9zpORR1yPsf6AHR/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+    <img src="https://media.giphy.com/media/pnCt5lONS60jsKGFqs/giphy.gif" width=250/>
+    <img src="https://media.giphy.com/media/Ykux0mjWoUjal3svCL/giphy.gif" width=250/>
+    <img src="https://media.giphy.com/media/L6fGAjGxIKVgQ1jQlG/giphy.gif" width=250/>
+    <img src="https://media.giphy.com/media/CGUcLBst7bRuh9Ocxt/giphy.gif" width=250/>
+    <!-- <img src='https://media.giphy.com/media/FLtp2QFsAUX5tzvI01/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+    <img src='https://media.giphy.com/media/IWQ9zpORR1yPsf6AHR/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
 * Profile
     * User can see their own information and names of collections they've created
     <img src='https://i.imgur.com/BIdAY20.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
@@ -77,6 +87,10 @@ A demo video for the app is [available here](https://www.youtube.com/watch?v=A9E
     * User can change their information
     * User can change privacy settings (whether to keep their collections private or public, etc.)
     SEE ABOV GIF
+    <img src="https://media.giphy.com/media/8HbgjAwLu2ucuagpfL/giphy.gif" width=250/>
+* BONUS: Social
+    * User can see other users' collections and movies in them
+    <img src="https://media.giphy.com/media/oFWg4Mdn4R4YMIRC4Q/giphy.gif" width=250/>
 
 ### 3. Navigation
 
