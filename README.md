@@ -41,11 +41,11 @@ A demo video for the app is [available here](https://www.youtube.com/watch?v=A9E
 
 **Optional Nice-to-have Stories**
 
-[ ] User can search by genre, actor name
-[ ] User can share their collections
-[x] User can view others collections
-[ ] User can get recommended collections by other users
-[x] User can get recommended movies by the system
+- [ ] User can search by genre, actor name
+- [ ] User can share their collections
+- [x] User can view others collections
+- [ ] User can get recommended collections by other users
+- [x] User can get recommended movies by the system
 
 ### 2. Screen Archetypes
 
