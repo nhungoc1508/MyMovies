@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     
     //
     // Outlets
+    @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     // displays total collections and movies saved
     @IBOutlet weak var collectionNumber: UILabel!
@@ -44,6 +45,7 @@ class ProfileViewController: UIViewController {
     func loadInfo() {
         // update username label
         if self.currentUser != nil {
+            displaynameLabel.text = self.currentUser?["displayName"] as! String
             usernameLabel.text = "@\((self.currentUser?.username)!)"
         }
         // get users collections

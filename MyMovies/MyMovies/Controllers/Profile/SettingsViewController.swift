@@ -53,7 +53,7 @@ class SettingsViewController: UIViewController {
         
         displayname.isEnabled = false
         if !displayname.isEnabled {
-            username.backgroundColor = .systemGray6
+            displayname.backgroundColor = .systemGray6
         }
         if self.currentUser != nil {
             displayname.text = self.currentUser?["displayName"] as! String
@@ -76,6 +76,49 @@ class SettingsViewController: UIViewController {
         var config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20.0))
         imageView.tintColor = .systemGray
         imageView.preferredSymbolConfiguration = config
+    }
+    
+    @IBAction func onEditInfo(_ sender: Any) {
+        if !username.isEnabled || !displayname.isEnabled {
+            username.isEnabled = true
+            if username.isEnabled {
+                username.backgroundColor = .white
+            }
+            displayname.isEnabled = true
+            if displayname.isEnabled {
+                displayname.backgroundColor = .white
+            }
+            infoButton.setTitle("Save changes", for: .normal)
+        } else {
+            if username.text!.count < 4 || username.text!.contains(" ") {
+                alert(msg: "Username must contain at least 4 characters and no space.")
+            } else {
+                currentUser?.username = username.text
+                if displayname.text == "" {
+                    currentUser?["displayName"] = username.text
+                } else {
+                    currentUser?["displayName"] = displayname.text
+                }
+                currentUser?.saveInBackground { (success, error) in
+                    if success {
+                        self.alert(msg: "Information saved successfully")
+                        self.infoButton.setTitle("Edit information", for: .normal)
+                        self.loadInfo()
+                    } else {
+                        print("Error saving information: \(error?.localizedDescription)")
+                        self.alert(msg: error?.localizedDescription ?? "Error saving new information")
+                    }
+                }
+            }
+        }
+    }
+    
+    func alert(msg: String) {
+        let dialogMessage = UIAlertController(title: "Edit information", message: msg, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
     }
     
 //    @IBAction func backButtonPressed(_ sender: Any) {

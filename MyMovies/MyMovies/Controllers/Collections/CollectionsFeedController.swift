@@ -13,6 +13,7 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var newButton: UIButton!
@@ -21,6 +22,7 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
     
     func loadCollections() {
         if self.currentUser != nil {
+            displaynameLabel.text = self.currentUser?["displayName"] as! String
             usernameLabel.text = "@" + (self.currentUser?.username)!
         }
         let query = PFQuery(className:"Collection")
