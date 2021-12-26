@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     
     //
     // Outlets
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     // displays total collections and movies saved
@@ -29,6 +30,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+        self.profilePic.clipsToBounds = true
         loadInfo()
         
         self.collectionCard.layer.cornerRadius = 12
@@ -43,6 +46,12 @@ class ProfileViewController: UIViewController {
     
     // fetches our users information for the profile
     func loadInfo() {
+        if self.currentUser?["profilePicture"] != nil {
+            let imageFile = currentUser?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            self.profilePic.af.setImage(withURL: url)
+        }
         // update username label
         if self.currentUser != nil {
             displaynameLabel.text = self.currentUser?["displayName"] as! String
@@ -87,7 +96,6 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
 
     /*
     // MARK: - Navigation

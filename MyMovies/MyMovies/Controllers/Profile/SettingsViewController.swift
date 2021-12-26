@@ -7,8 +7,9 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var privateCollectionsSwitch: UISwitch!
     @IBOutlet weak var profilePic: UIImageView!
@@ -19,10 +20,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     
     let currentUser = PFUser.current()
+    var picSaved = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+        self.profilePic.clipsToBounds = true
+        
         self.logoutButton.layer.cornerRadius = 12
         self.logoutButton.applyGradient(colors: [UIColor(named: "orange-coral")!.cgColor, UIColor(named: "pink-coral")!.cgColor])
         
@@ -58,6 +63,12 @@ class SettingsViewController: UIViewController {
         if self.currentUser != nil {
             displayname.text = self.currentUser?["displayName"] as! String
         }
+        if self.currentUser?["profilePicture"] != nil {
+            let imageFile = currentUser?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            self.profilePic.af.setImage(withURL: url)
+        }
     }
     
     func addLeftImage(textfield: UITextField, imageName: String) {
@@ -78,6 +89,64 @@ class SettingsViewController: UIViewController {
         imageView.preferredSymbolConfiguration = config
     }
     
+    @IBAction func onEditPic(_ sender: Any) {
+        if self.picSaved {
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                picker.sourceType = .camera
+            } else {
+                picker.sourceType = .photoLibrary
+            }
+            
+            present(picker, animated: true, completion: nil)
+            self.picButton.setTitle("Save", for: .normal)
+            self.picSaved = !self.picSaved
+        } else {
+            let imageData = profilePic.image!.pngData()
+            let file = PFFileObject(name: "image.png", data: imageData!)
+            currentUser?["profilePicture"] = file
+            currentUser?.saveInBackground { (success, error) in
+                if success {
+                    self.alert(msg: "Profile picture saved successfully", title: "Edit profile picture")
+                    self.picButton.setTitle("Edit profile picture", for: .normal)
+                    self.loadInfo()
+                } else {
+                    print("Error saving profile picture: \(error?.localizedDescription)")
+                    self.alert(msg: error?.localizedDescription ?? "Error saving profile picture", title: "Edit profile picture")
+                }
+            }
+            /*
+             let imageData = imageView.image!.pngData()
+             let file = PFFileObject(name: "image.png", data: imageData!)
+             
+             post["image"] = file
+             
+             post.saveInBackground { (success, error) in
+                 if success {
+                     print("Saved!")
+                     self.dismiss(animated: true, completion: nil)
+                 } else {
+                     print("Error: \(error)")
+                 }
+             }
+             */
+            
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 600, height: 600)
+        let scaledImage = image.af.imageAspectScaled(toFill: size)
+        
+        profilePic.image = scaledImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func onEditInfo(_ sender: Any) {
         if !username.isEnabled || !displayname.isEnabled {
             username.isEnabled = true
@@ -91,7 +160,7 @@ class SettingsViewController: UIViewController {
             infoButton.setTitle("Save changes", for: .normal)
         } else {
             if username.text!.count < 4 || username.text!.contains(" ") {
-                alert(msg: "Username must contain at least 4 characters and no space.")
+                alert(msg: "Username must contain at least 4 characters and no space.", title: "Edit information")
             } else {
                 currentUser?.username = username.text
                 if displayname.text == "" {
@@ -101,20 +170,20 @@ class SettingsViewController: UIViewController {
                 }
                 currentUser?.saveInBackground { (success, error) in
                     if success {
-                        self.alert(msg: "Information saved successfully")
+                        self.alert(msg: "Information saved successfully", title: "Edit information")
                         self.infoButton.setTitle("Edit information", for: .normal)
                         self.loadInfo()
                     } else {
                         print("Error saving information: \(error?.localizedDescription)")
-                        self.alert(msg: error?.localizedDescription ?? "Error saving new information")
+                        self.alert(msg: error?.localizedDescription ?? "Error saving new information", title: "Edit information")
                     }
                 }
             }
         }
     }
     
-    func alert(msg: String) {
-        let dialogMessage = UIAlertController(title: "Edit information", message: msg, preferredStyle: .alert)
+    func alert(msg: String, title: String) {
+        let dialogMessage = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
         })
         dialogMessage.addAction(ok)

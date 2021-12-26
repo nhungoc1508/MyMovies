@@ -966,6 +966,22 @@
             </objects>
             <point key="canvasLocation" x="828.98550724637687" y="3114.5089285714284"/>
         </scene>
+        <!--Profile Picture View Controller-->
+        <scene sceneID="ga2-2z-TsA">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="6ct-59-P4r" customClass="ProfilePictureViewController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oPQ-BJ-jHA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wsC-R9-H7j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KqU-QB-fLC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWB-iY-o5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="3115"/>
+        </scene>
         <!--Added View Controller-->
         <scene sceneID="ap6-9W-7r6">
             <objects>
@@ -1431,6 +1447,7 @@
                         <outlet property="displaynameLabel" destination="F3d-L2-DCD" id="iAW-mP-Xxk"/>
                         <outlet property="movieCard" destination="mev-PB-rbB" id="po1-2P-gfH"/>
                         <outlet property="movieNumber" destination="Z6B-1h-KHE" id="tc7-y7-8aj"/>
+                        <outlet property="profilePic" destination="J0N-0I-G2K" id="odj-w1-OCD"/>
                         <outlet property="usernameLabel" destination="Zue-sW-GHi" id="boq-uc-Rxh"/>
                     </connections>
                 </viewController>
@@ -1501,6 +1518,8 @@
                                 </state>
                                 <connections>
                                     <action selector="addCollection:" destination="8pD-Dq-LaX" eventType="touchUpInside" id="Ff9-Bo-LZA"/>
+                                    <action selector="onEditPic:" destination="YAi-k4-olj" eventType="touchUpInside" id="CwN-io-Pd4"/>
+                                    <action selector="onEditPic:" destination="B8M-Ab-aEE" eventType="touchUpInside" id="E4m-uV-u0I"/>
                                     <action selector="onRename:" destination="cXc-m0-Vaz" eventType="touchUpInside" id="gNX-oF-1q9"/>
                                 </connections>
                             </button>
@@ -1535,6 +1554,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-GK-Faa">
+                                <rect key="frame" x="198" y="611" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fkO-4l-tjI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1563,6 +1586,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVI-Yk-xFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YAi-k4-olj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="2389.9553571428569"/>
         </scene>
