@@ -12,7 +12,7 @@ import AlamofireImage
 class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
@@ -61,6 +61,14 @@ class CollectionsFeedController: UIViewController, UITableViewDelegate, UITableV
         let purpleish = UIColor(named: "purpleish")!.cgColor
         self.newButton.layer.cornerRadius = 12
         self.newButton.applyGradient(colors: [pinkish, purpleish])
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+        self.profilePic.clipsToBounds = true
+        if self.currentUser?["profilePicture"] != nil {
+            let imageFile = currentUser?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            self.profilePic.af.setImage(withURL: url)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

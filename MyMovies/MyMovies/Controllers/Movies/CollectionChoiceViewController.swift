@@ -16,7 +16,9 @@ class CollectionChoiceViewController: UIViewController, UITableViewDelegate, UIT
     var collections = [PFObject]()
     let currentUser = PFUser.current()
 
+    @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,15 @@ class CollectionChoiceViewController: UIViewController, UITableViewDelegate, UIT
         tableView.rowHeight = 100
         self.loadCollections()
         self.tableView.reloadData()
+        
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+        self.profilePic.clipsToBounds = true
+        if self.currentUser?["profilePicture"] != nil {
+            let imageFile = currentUser?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            self.profilePic.af.setImage(withURL: url)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -38,6 +49,7 @@ class CollectionChoiceViewController: UIViewController, UITableViewDelegate, UIT
     func loadCollections() {
         let currentUser = PFUser.current()
         if currentUser != nil {
+            displaynameLabel.text = currentUser?["displayName"] as? String
             usernameLabel.text = "@" + (currentUser?.username)!
         }
         let query = PFQuery(className:"Collection")

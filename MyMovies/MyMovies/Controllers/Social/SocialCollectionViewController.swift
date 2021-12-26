@@ -31,7 +31,7 @@ class SocialCollectionViewController: UIViewController, UICollectionViewDelegate
 
         // Do any additional setup after loading the view.
         collectionName.text = collection?["name"] as? String
-        username.text = ((collection?["owner"] as! PFObject)["username"] as! String) + "'s collection"
+        username.text = ((collection?["owner"] as! PFObject)["displayName"] as! String) + "'s collection"
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

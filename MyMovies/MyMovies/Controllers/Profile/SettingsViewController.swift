@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var displayname: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     let currentUser = PFUser.current()
     var picSaved = true
     
@@ -108,38 +110,25 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             let imageData = profilePic.image!.pngData()
             let file = PFFileObject(name: "image.png", data: imageData!)
             currentUser?["profilePicture"] = file
+            self.loading.startAnimating()
             currentUser?.saveInBackground { (success, error) in
+                self.loading.stopAnimating()
                 if success {
                     self.alert(msg: "Profile picture saved successfully", title: "Edit profile picture")
                     self.picButton.setTitle("Edit profile picture", for: .normal)
                     self.loadInfo()
+                    self.picSaved = !self.picSaved
                 } else {
                     print("Error saving profile picture: \(error?.localizedDescription)")
                     self.alert(msg: error?.localizedDescription ?? "Error saving profile picture", title: "Edit profile picture")
                 }
             }
-            /*
-             let imageData = imageView.image!.pngData()
-             let file = PFFileObject(name: "image.png", data: imageData!)
-             
-             post["image"] = file
-             
-             post.saveInBackground { (success, error) in
-                 if success {
-                     print("Saved!")
-                     self.dismiss(animated: true, completion: nil)
-                 } else {
-                     print("Error: \(error)")
-                 }
-             }
-             */
-            
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
-        let size = CGSize(width: 600, height: 600)
+        let size = CGSize(width: 100, height: 100)
         let scaledImage = image.af.imageAspectScaled(toFill: size)
         
         profilePic.image = scaledImage
@@ -168,7 +157,9 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
                 } else {
                     currentUser?["displayName"] = displayname.text
                 }
+                self.loading.startAnimating()
                 currentUser?.saveInBackground { (success, error) in
+                    self.loading.stopAnimating()
                     if success {
                         self.alert(msg: "Information saved successfully", title: "Edit information")
                         self.infoButton.setTitle("Edit information", for: .normal)

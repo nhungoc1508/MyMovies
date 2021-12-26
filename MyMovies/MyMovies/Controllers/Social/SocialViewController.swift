@@ -73,6 +73,14 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.collectionName.text = collection["name"] as? String
             let owner = collection["owner"] as! PFObject
             cell.username.text = "@" + (owner["username"] as? String)!
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
+            cell.profilePic.clipsToBounds = true
+            if owner["profilePicture"] != nil {
+                let imageFile = owner["profilePicture"] as! PFFileObject
+                let urlString = imageFile.url!
+                let url = URL(string: urlString)!
+                cell.profilePic.af.setImage(withURL: url)
+            }
             
             let ids = collection["movie_ids"] as! Array<Int>
             let thumbnails = self.getThumbnails(collection: collection, count: ids.count)

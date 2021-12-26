@@ -10,6 +10,7 @@ import UIKit
 class SocialTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionName: UILabel!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
     
     @IBOutlet weak var posterView0: UIImageView!
     @IBOutlet weak var posterView1: UIImageView!
