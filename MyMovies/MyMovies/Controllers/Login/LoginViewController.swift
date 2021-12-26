@@ -18,12 +18,52 @@ class LoginViewController: UIViewController {
         self.usernameField.borderStyle = .roundedRect
         self.passwordField.borderStyle = .roundedRect
         
+        self.addRightImage(textfield: usernameField, imageName: "person")
+        self.addRightImage(textfield: passwordField, imageName: "key")
+        
         self.logInButton.layer.cornerRadius = 12
         let pinkish = UIColor(named: "pinkish")!.cgColor
         let purpleish = UIColor(named: "purpleish")!.cgColor
         self.logInButton.applyGradient(colors: [pinkish, purpleish])
+        
+        self.validateAll()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func addRightImage(textfield: UITextField, imageName: String) {
+        textfield.rightViewMode = UITextField.ViewMode.always
+        let imageView = UIImageView(frame: CGRect(x: 8, y: 8, width: 24, height: 24))
+        let image = UIImage(systemName: imageName)
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        view.addSubview(imageView)
+        
+        textfield.rightView = view
+
+        var config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20.0))
+        imageView.tintColor = .systemGray
+        imageView.preferredSymbolConfiguration = config
+    }
+    
+    func validateAll() {
+        if usernameField.text == "" || passwordField.text == "" {
+            logInButton.isEnabled = false
+            logInButton.alpha = 0.5
+        } else {
+            logInButton.isEnabled = true
+            logInButton.alpha = 1
+        }
+    }
+    
+    @IBAction func usernameChanged(_ sender: Any) {
+        self.validateAll()
+    }
+    
+    @IBAction func passwordChanged(_ sender: Any) {
+        self.validateAll()
     }
     
     @IBAction func onSignIn(_ sender: Any) {
