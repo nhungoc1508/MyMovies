@@ -42,6 +42,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         query.whereKey("owner", notEqualTo: PFUser.current()!)
         query.includeKeys(["objectId", "owner", "name"])
         query.limit = limit
+        query.order(byDescending: "createdAt")
         
         // fetch data asynchronously
         query.findObjectsInBackground { (collections: [PFObject]?, error: Error?) in

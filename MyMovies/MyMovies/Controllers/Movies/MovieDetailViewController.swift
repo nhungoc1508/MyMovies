@@ -72,13 +72,17 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         // Do any additional setup after loading the view.
         movieName.text = (movie["title"] as! String)
         
-        let release_date = movie["release_date"] as! String
-        if release_date.contains("-") {
-            let index = release_date.firstIndex(of: "-")!
-            let year = String(release_date[..<index])
-            movieYear.text = year
+        if movie["release_date"] != nil {
+            let release_date = movie["release_date"] as! String
+            if release_date.contains("-") {
+                let index = release_date.firstIndex(of: "-")!
+                let year = String(release_date[..<index])
+                movieYear.text = year
+            } else {
+                movieYear.text = ""
+            }
         } else {
-            movieYear.text = ""
+            movieYear.isHidden = true
         }
         
         movieSynopsis.text = (movie["overview"] as! String)
